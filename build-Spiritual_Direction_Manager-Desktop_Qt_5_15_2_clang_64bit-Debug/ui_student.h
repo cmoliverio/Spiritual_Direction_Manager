@@ -24,7 +24,7 @@ public:
         if (Student->objectName().isEmpty())
             Student->setObjectName(QString::fromUtf8("Student"));
         Student->resize(400, 300);
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(Student->sizePolicy().hasHeightForWidth());

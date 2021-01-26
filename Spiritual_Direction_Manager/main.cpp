@@ -4,6 +4,13 @@
 #include <QApplication>
 #include <QSize>
 
+/**
+ * Student student;
+    student.setModal(true);
+    student.setFixedSize(QSize{400, 300});
+    student.exec();
+ */
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

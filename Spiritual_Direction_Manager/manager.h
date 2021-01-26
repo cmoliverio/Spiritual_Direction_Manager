@@ -15,9 +15,6 @@ public:
     Manager(QWidget *parent = nullptr);
     ~Manager();
 
-private slots:
-    void on_buttonNewStudent_clicked();
-
 private:
     Ui::Manager *ui;
 };
