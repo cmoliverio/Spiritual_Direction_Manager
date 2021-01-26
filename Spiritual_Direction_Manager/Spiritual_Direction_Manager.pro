@@ -11,15 +11,15 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     manager.cpp \
-    student.cpp
+    studentdialog.cpp
 
 HEADERS += \
     manager.h \
-    student.h
+    studentdialog.h
 
 FORMS += \
     manager.ui \
-    student.ui
+    studentdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

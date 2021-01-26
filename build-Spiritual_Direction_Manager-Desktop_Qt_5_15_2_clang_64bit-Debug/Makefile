@@ -54,13 +54,13 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Spiritual_Direction_Manager/main.cpp \
 		../Spiritual_Direction_Manager/manager.cpp \
-		../Spiritual_Direction_Manager/student.cpp moc_manager.cpp \
-		moc_student.cpp
+		../Spiritual_Direction_Manager/studentdialog.cpp moc_manager.cpp \
+		moc_studentdialog.cpp
 OBJECTS       = main.o \
 		manager.o \
-		student.o \
+		studentdialog.o \
 		moc_manager.o \
-		moc_student.o
+		moc_studentdialog.o
 DIST          = /Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/Christian/Qt/5.15.2/clang_64/mkspecs/qdevice.pri \
 		/Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/device_config.prf \
@@ -239,9 +239,9 @@ DIST          = /Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.pr
 		/Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/yacc.prf \
 		/Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/lex.prf \
 		../Spiritual_Direction_Manager/Spiritual_Direction_Manager.pro ../Spiritual_Direction_Manager/manager.h \
-		../Spiritual_Direction_Manager/student.h ../Spiritual_Direction_Manager/main.cpp \
+		../Spiritual_Direction_Manager/studentdialog.h ../Spiritual_Direction_Manager/main.cpp \
 		../Spiritual_Direction_Manager/manager.cpp \
-		../Spiritual_Direction_Manager/student.cpp
+		../Spiritual_Direction_Manager/studentdialog.cpp
 QMAKE_TARGET  = Spiritual_Direction_Manager
 DESTDIR       = 
 TARGET        = Spiritual_Direction_Manager.app/Contents/MacOS/Spiritual_Direction_Manager
@@ -260,7 +260,7 @@ include /Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Spiritual_Direction_Manager.app/Contents/MacOS/Spiritual_Direction_Manager: ui_manager.h ui_student.h $(OBJECTS)  
+Spiritual_Direction_Manager.app/Contents/MacOS/Spiritual_Direction_Manager: ui_manager.h ui_studentdialog.h $(OBJECTS)  
 	@test -d Spiritual_Direction_Manager.app/Contents/MacOS/ || mkdir -p Spiritual_Direction_Manager.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -657,9 +657,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Spiritual_Direction_Manager/manager.h ../Spiritual_Direction_Manager/student.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Spiritual_Direction_Manager/main.cpp ../Spiritual_Direction_Manager/manager.cpp ../Spiritual_Direction_Manager/student.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Spiritual_Direction_Manager/manager.ui ../Spiritual_Direction_Manager/student.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Spiritual_Direction_Manager/manager.h ../Spiritual_Direction_Manager/studentdialog.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Spiritual_Direction_Manager/main.cpp ../Spiritual_Direction_Manager/manager.cpp ../Spiritual_Direction_Manager/studentdialog.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Spiritual_Direction_Manager/manager.ui ../Spiritual_Direction_Manager/studentdialog.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -694,37 +694,40 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/Christian/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_manager.cpp moc_student.cpp
+compiler_moc_header_make_all: moc_manager.cpp moc_studentdialog.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_manager.cpp moc_student.cpp
+	-$(DEL_FILE) moc_manager.cpp moc_studentdialog.cpp
 moc_manager.cpp: ../Spiritual_Direction_Manager/manager.h \
+		../Spiritual_Direction_Manager/studentdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		moc_predefs.h \
 		/Users/Christian/Qt/5.15.2/clang_64/bin/moc
 	/Users/Christian/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/build-Spiritual_Direction_Manager-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/Christian/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/Spiritual_Direction_Manager -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/Christian/Qt/5.15.2/clang_64/lib ../Spiritual_Direction_Manager/manager.h -o moc_manager.cpp
 
-moc_student.cpp: ../Spiritual_Direction_Manager/student.h \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+moc_studentdialog.cpp: ../Spiritual_Direction_Manager/studentdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		moc_predefs.h \
 		/Users/Christian/Qt/5.15.2/clang_64/bin/moc
-	/Users/Christian/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/build-Spiritual_Direction_Manager-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/Christian/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/Spiritual_Direction_Manager -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/Christian/Qt/5.15.2/clang_64/lib ../Spiritual_Direction_Manager/student.h -o moc_student.cpp
+	/Users/Christian/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/build-Spiritual_Direction_Manager-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/Christian/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/Spiritual_Direction_Manager -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/Christian/Qt/5.15.2/clang_64/lib ../Spiritual_Direction_Manager/studentdialog.h -o moc_studentdialog.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_manager.h ui_student.h
+compiler_uic_make_all: ui_manager.h ui_studentdialog.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_manager.h ui_student.h
+	-$(DEL_FILE) ui_manager.h ui_studentdialog.h
 ui_manager.h: ../Spiritual_Direction_Manager/manager.ui \
 		/Users/Christian/Qt/5.15.2/clang_64/bin/uic
 	/Users/Christian/Qt/5.15.2/clang_64/bin/uic ../Spiritual_Direction_Manager/manager.ui -o ui_manager.h
 
-ui_student.h: ../Spiritual_Direction_Manager/student.ui \
+ui_studentdialog.h: ../Spiritual_Direction_Manager/studentdialog.ui \
 		/Users/Christian/Qt/5.15.2/clang_64/bin/uic
-	/Users/Christian/Qt/5.15.2/clang_64/bin/uic ../Spiritual_Direction_Manager/student.ui -o ui_student.h
+	/Users/Christian/Qt/5.15.2/clang_64/bin/uic ../Spiritual_Direction_Manager/studentdialog.ui -o ui_studentdialog.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -739,29 +742,39 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 main.o: ../Spiritual_Direction_Manager/main.cpp ../Spiritual_Direction_Manager/manager.h \
+		../Spiritual_Direction_Manager/studentdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QSize \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qsize.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QList \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qlist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Spiritual_Direction_Manager/main.cpp
 
 manager.o: ../Spiritual_Direction_Manager/manager.cpp ../Spiritual_Direction_Manager/manager.h \
+		../Spiritual_Direction_Manager/studentdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_manager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manager.o ../Spiritual_Direction_Manager/manager.cpp
 
-student.o: ../Spiritual_Direction_Manager/student.cpp ../Spiritual_Direction_Manager/student.h \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_student.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o student.o ../Spiritual_Direction_Manager/student.cpp
+studentdialog.o: ../Spiritual_Direction_Manager/studentdialog.cpp ../Spiritual_Direction_Manager/studentdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_studentdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o studentdialog.o ../Spiritual_Direction_Manager/studentdialog.cpp
 
 moc_manager.o: moc_manager.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_manager.o moc_manager.cpp
 
-moc_student.o: moc_student.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_student.o moc_student.cpp
+moc_studentdialog.o: moc_studentdialog.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_studentdialog.o moc_studentdialog.cpp
 
 ####### Install
 

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
@@ -40,6 +41,12 @@ public:
     QLabel *labelDetails;
     QLabel *labelList;
     QListWidget *listWidget;
+    QFrame *lineSeparate;
+    QFrame *lineSeparate_2;
+    QPushButton *pushButtonEditStudent;
+    QPushButton *pushButtonNewStudent;
+    QPushButton *pushButtonRemoveStudent;
+    QPushButton *pushButtonLoadStudents;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -110,6 +117,28 @@ public:
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(365, 120, 341, 231));
+        lineSeparate = new QFrame(centralwidget);
+        lineSeparate->setObjectName(QString::fromUtf8("lineSeparate"));
+        lineSeparate->setGeometry(QRect(50, 380, 700, 3));
+        lineSeparate->setFrameShape(QFrame::HLine);
+        lineSeparate->setFrameShadow(QFrame::Sunken);
+        lineSeparate_2 = new QFrame(centralwidget);
+        lineSeparate_2->setObjectName(QString::fromUtf8("lineSeparate_2"));
+        lineSeparate_2->setGeometry(QRect(50, 60, 700, 3));
+        lineSeparate_2->setFrameShape(QFrame::HLine);
+        lineSeparate_2->setFrameShadow(QFrame::Sunken);
+        pushButtonEditStudent = new QPushButton(centralwidget);
+        pushButtonEditStudent->setObjectName(QString::fromUtf8("pushButtonEditStudent"));
+        pushButtonEditStudent->setGeometry(QRect(530, 460, 151, 32));
+        pushButtonNewStudent = new QPushButton(centralwidget);
+        pushButtonNewStudent->setObjectName(QString::fromUtf8("pushButtonNewStudent"));
+        pushButtonNewStudent->setGeometry(QRect(530, 560, 151, 32));
+        pushButtonRemoveStudent = new QPushButton(centralwidget);
+        pushButtonRemoveStudent->setObjectName(QString::fromUtf8("pushButtonRemoveStudent"));
+        pushButtonRemoveStudent->setGeometry(QRect(530, 510, 151, 32));
+        pushButtonLoadStudents = new QPushButton(centralwidget);
+        pushButtonLoadStudents->setObjectName(QString::fromUtf8("pushButtonLoadStudents"));
+        pushButtonLoadStudents->setGeometry(QRect(530, 410, 151, 32));
         Manager->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Manager);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -147,6 +176,10 @@ public:
         pushButtonMatchStudents->setText(QCoreApplication::translate("Manager", "Match Students", nullptr));
         labelDetails->setText(QCoreApplication::translate("Manager", "Details", nullptr));
         labelList->setText(QCoreApplication::translate("Manager", "Listing", nullptr));
+        pushButtonEditStudent->setText(QCoreApplication::translate("Manager", "Edit Student", nullptr));
+        pushButtonNewStudent->setText(QCoreApplication::translate("Manager", "New Student", nullptr));
+        pushButtonRemoveStudent->setText(QCoreApplication::translate("Manager", "Remove Student", nullptr));
+        pushButtonLoadStudents->setText(QCoreApplication::translate("Manager", "Load Students", nullptr));
     } // retranslateUi
 
 };
