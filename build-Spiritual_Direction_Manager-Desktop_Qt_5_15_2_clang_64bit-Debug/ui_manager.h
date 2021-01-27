@@ -132,7 +132,10 @@ public:
         pushButtonEditStudent->setGeometry(QRect(530, 460, 151, 32));
         pushButtonNewStudent = new QPushButton(centralwidget);
         pushButtonNewStudent->setObjectName(QString::fromUtf8("pushButtonNewStudent"));
+        pushButtonNewStudent->setEnabled(true);
         pushButtonNewStudent->setGeometry(QRect(530, 560, 151, 32));
+        pushButtonNewStudent->setAutoDefault(false);
+        pushButtonNewStudent->setFlat(false);
         pushButtonRemoveStudent = new QPushButton(centralwidget);
         pushButtonRemoveStudent->setObjectName(QString::fromUtf8("pushButtonRemoveStudent"));
         pushButtonRemoveStudent->setGeometry(QRect(530, 510, 151, 32));
@@ -149,6 +152,10 @@ public:
         Manager->setStatusBar(statusbar);
 
         retranslateUi(Manager);
+
+        pushButtonMatchStudents->setDefault(true);
+        pushButtonNewStudent->setDefault(true);
+
 
         QMetaObject::connectSlotsByName(Manager);
     } // setupUi
@@ -170,7 +177,7 @@ public:
         labelDayOfWeek->setText(QCoreApplication::translate("Manager", "Day of Week", nullptr));
         labelSpiritualAdvisor->setText(QCoreApplication::translate("Manager", "Spiritual Advisor", nullptr));
         comboBoxSpiritualAdvisor->setItemText(0, QCoreApplication::translate("Manager", "Fr. Scott Woods", nullptr));
-        comboBoxSpiritualAdvisor->setItemText(1, QCoreApplication::translate("Manager", "Fr.  Stephen Wyble", nullptr));
+        comboBoxSpiritualAdvisor->setItemText(1, QCoreApplication::translate("Manager", "Fr. Stephen Wyble", nullptr));
         comboBoxSpiritualAdvisor->setItemText(2, QCoreApplication::translate("Manager", "William Bolin", nullptr));
 
         pushButtonMatchStudents->setText(QCoreApplication::translate("Manager", "Match Students", nullptr));

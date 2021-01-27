@@ -187,7 +187,7 @@
     </item>
     <item>
      <property name="text">
-      <string>Fr.  Stephen Wyble</string>
+      <string>Fr. Stephen Wyble</string>
      </property>
     </item>
     <item>
@@ -207,6 +207,9 @@
     </property>
     <property name="text">
      <string>Match Students</string>
+    </property>
+    <property name="default">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelDetails">
@@ -288,6 +291,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonNewStudent">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -298,6 +304,15 @@
     </property>
     <property name="text">
      <string>New Student</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonRemoveStudent">

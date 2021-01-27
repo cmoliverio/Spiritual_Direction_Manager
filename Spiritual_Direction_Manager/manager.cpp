@@ -7,7 +7,7 @@ Manager::Manager(QWidget *parent)
     , ui(new Ui::Manager)
 {
     ui->setupUi(this);
-    connect(ui->pushButtonNewStudent,SIGNAL(clicked()),this,SLOT(on_pushButtonNewStudent_clicked()));
+    //connect(ui->pushButtonNewStudent,SIGNAL(clicked()),this,SLOT(on_pushButtonNewStudent_clicked()));
 }
 
 Manager::~Manager()
@@ -18,6 +18,6 @@ Manager::~Manager()
 void Manager::on_pushButtonNewStudent_clicked()
 {
     studentdialog = new StudentDialog();
-    studentdialog->setModal(true);
+    studentdialog->setFixedSize(400, 420);
     studentdialog->exec();
 }
