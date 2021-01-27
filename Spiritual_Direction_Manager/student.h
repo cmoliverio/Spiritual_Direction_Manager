@@ -1,22 +1,19 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include <QDialog>
+#include <QString>
+#include <QDate>
 
-namespace Ui {
-class Student;
-}
-
-class Student : public QDialog
+class Student
 {
-    Q_OBJECT
-
 public:
-    explicit Student(QWidget *parent = nullptr);
-    ~Student();
-
-private:
-    Ui::Student *ui;
+    QString first_name;
+    QString last_name;
+    QString spiritual_advisor;
+    QString frequency;
+    QDate last_visit;
+    Student();
+    Student(QString first_name, QString last_name, QString spiritual_advisor, QString frequency, QDate last_visit);
 };
 
 #endif // STUDENT_H

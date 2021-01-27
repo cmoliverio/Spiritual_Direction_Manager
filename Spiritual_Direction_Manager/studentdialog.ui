@@ -173,7 +173,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QLineEdit" name="lineEditFistName">
+  <widget class="QLineEdit" name="lineEditFirstName">
    <property name="geometry">
     <rect>
      <x>200</x>

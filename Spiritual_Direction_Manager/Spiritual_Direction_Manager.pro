@@ -11,10 +11,12 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     manager.cpp \
+    student.cpp \
     studentdialog.cpp
 
 HEADERS += \
     manager.h \
+    student.h \
     studentdialog.h
 
 FORMS += \

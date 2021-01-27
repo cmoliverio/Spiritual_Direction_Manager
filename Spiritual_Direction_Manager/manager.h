@@ -2,9 +2,11 @@
 #define MANAGER_H
 
 #include "studentdialog.h"
+#include "student.h"
 
 #include <QMainWindow>
 #include <QDialog>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Manager; }

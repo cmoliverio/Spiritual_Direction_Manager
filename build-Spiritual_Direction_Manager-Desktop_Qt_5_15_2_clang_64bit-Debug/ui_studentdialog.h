@@ -33,7 +33,7 @@ public:
     QComboBox *comboBoxSpiritualAdvisor;
     QDateEdit *dateEdit;
     QComboBox *comboBoxVisitFrequency;
-    QLineEdit *lineEditFistName;
+    QLineEdit *lineEditFirstName;
     QLineEdit *lineEditLastName;
     QLabel *labelNewStudent;
     QFrame *line;
@@ -83,9 +83,9 @@ public:
         comboBoxVisitFrequency->addItem(QString());
         comboBoxVisitFrequency->setObjectName(QString::fromUtf8("comboBoxVisitFrequency"));
         comboBoxVisitFrequency->setGeometry(QRect(200, 200, 171, 32));
-        lineEditFistName = new QLineEdit(StudentDialog);
-        lineEditFistName->setObjectName(QString::fromUtf8("lineEditFistName"));
-        lineEditFistName->setGeometry(QRect(200, 100, 171, 21));
+        lineEditFirstName = new QLineEdit(StudentDialog);
+        lineEditFirstName->setObjectName(QString::fromUtf8("lineEditFirstName"));
+        lineEditFirstName->setGeometry(QRect(200, 100, 171, 21));
         lineEditLastName = new QLineEdit(StudentDialog);
         lineEditLastName->setObjectName(QString::fromUtf8("lineEditLastName"));
         lineEditLastName->setGeometry(QRect(200, 150, 171, 21));
