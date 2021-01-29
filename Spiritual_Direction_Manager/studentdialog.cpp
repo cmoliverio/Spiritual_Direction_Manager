@@ -15,17 +15,11 @@ StudentDialog::~StudentDialog()
 
 void StudentDialog::on_buttonBox_accepted()
 {
-    QString first_name = ui->lineEditFirstName->text();
-    QString last_name = ui->lineEditLastName->text();
-    QString frequency = ui->comboBoxVisitFrequency->currentText();
-    QString spiritual_advisor = ui->comboBoxSpiritualAdvisor->currentText();
-    QDate last_visit = ui->dateEdit->date();
-
-    student.first_name = first_name;
-    student.last_name = last_name;
-    student.frequency = frequency;
-    student.spiritual_advisor = spiritual_advisor;
-    student.last_visit = last_visit;
+    student.setFirst_name(ui->lineEditFirstName->text());
+    student.setLast_name(ui->lineEditLastName->text());
+    student.setFrequency(ui->comboBoxVisitFrequency->currentText());
+    student.setSpiritual_advisor(ui->comboBoxSpiritualAdvisor->currentText());
+    student.setLast_visit(ui->dateEdit->date());
 }
 
 Student StudentDialog::getStudent(){

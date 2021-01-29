@@ -108,7 +108,7 @@ public:
 
     void retranslateUi(QDialog *StudentDialog)
     {
-        StudentDialog->setWindowTitle(QCoreApplication::translate("StudentDialog", "Dialog", nullptr));
+        StudentDialog->setWindowTitle(QCoreApplication::translate("StudentDialog", "Student", nullptr));
         labelFirstName->setText(QCoreApplication::translate("StudentDialog", "First Name", nullptr));
         labelLastName->setText(QCoreApplication::translate("StudentDialog", "Last Name", nullptr));
         labelLastVisit->setText(QCoreApplication::translate("StudentDialog", "Last Visit", nullptr));

@@ -9,17 +9,22 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    event.cpp \
+    eventdialog.cpp \
     main.cpp \
     manager.cpp \
     student.cpp \
     studentdialog.cpp
 
 HEADERS += \
+    event.h \
+    eventdialog.h \
     manager.h \
     student.h \
     studentdialog.h
 
 FORMS += \
+    eventdialog.ui \
     manager.ui \
     studentdialog.ui
 

@@ -13,12 +13,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
@@ -47,6 +49,7 @@ public:
     QPushButton *pushButtonNewStudent;
     QPushButton *pushButtonRemoveStudent;
     QPushButton *pushButtonLoadStudents;
+    QTableWidget *tableWidgetStudents;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -72,16 +75,16 @@ public:
         welcomeLabel->setAlignment(Qt::AlignCenter);
         timeStart = new QTimeEdit(centralwidget);
         timeStart->setObjectName(QString::fromUtf8("timeStart"));
-        timeStart->setGeometry(QRect(180, 270, 100, 22));
+        timeStart->setGeometry(QRect(205, 272, 100, 22));
         timeEnd = new QTimeEdit(centralwidget);
         timeEnd->setObjectName(QString::fromUtf8("timeEnd"));
-        timeEnd->setGeometry(QRect(180, 220, 100, 22));
+        timeEnd->setGeometry(QRect(205, 222, 100, 22));
         labelTimeStart = new QLabel(centralwidget);
         labelTimeStart->setObjectName(QString::fromUtf8("labelTimeStart"));
-        labelTimeStart->setGeometry(QRect(55, 218, 71, 32));
+        labelTimeStart->setGeometry(QRect(80, 220, 71, 32));
         labelTimeEnd = new QLabel(centralwidget);
         labelTimeEnd->setObjectName(QString::fromUtf8("labelTimeEnd"));
-        labelTimeEnd->setGeometry(QRect(55, 268, 60, 32));
+        labelTimeEnd->setGeometry(QRect(80, 270, 60, 32));
         comboBoxDayOfWeek = new QComboBox(centralwidget);
         comboBoxDayOfWeek->addItem(QString());
         comboBoxDayOfWeek->addItem(QString());
@@ -91,32 +94,33 @@ public:
         comboBoxDayOfWeek->addItem(QString());
         comboBoxDayOfWeek->addItem(QString());
         comboBoxDayOfWeek->setObjectName(QString::fromUtf8("comboBoxDayOfWeek"));
-        comboBoxDayOfWeek->setGeometry(QRect(170, 170, 180, 32));
+        comboBoxDayOfWeek->setGeometry(QRect(195, 172, 180, 32));
         labelDayOfWeek = new QLabel(centralwidget);
         labelDayOfWeek->setObjectName(QString::fromUtf8("labelDayOfWeek"));
-        labelDayOfWeek->setGeometry(QRect(55, 168, 81, 32));
+        labelDayOfWeek->setGeometry(QRect(80, 170, 81, 32));
         labelSpiritualAdvisor = new QLabel(centralwidget);
         labelSpiritualAdvisor->setObjectName(QString::fromUtf8("labelSpiritualAdvisor"));
-        labelSpiritualAdvisor->setGeometry(QRect(55, 118, 110, 32));
+        labelSpiritualAdvisor->setGeometry(QRect(80, 120, 110, 32));
         comboBoxSpiritualAdvisor = new QComboBox(centralwidget);
         comboBoxSpiritualAdvisor->addItem(QString());
         comboBoxSpiritualAdvisor->addItem(QString());
         comboBoxSpiritualAdvisor->addItem(QString());
         comboBoxSpiritualAdvisor->setObjectName(QString::fromUtf8("comboBoxSpiritualAdvisor"));
-        comboBoxSpiritualAdvisor->setGeometry(QRect(170, 120, 180, 32));
+        comboBoxSpiritualAdvisor->setGeometry(QRect(195, 122, 180, 32));
         pushButtonMatchStudents = new QPushButton(centralwidget);
         pushButtonMatchStudents->setObjectName(QString::fromUtf8("pushButtonMatchStudents"));
-        pushButtonMatchStudents->setGeometry(QRect(100, 320, 150, 32));
+        pushButtonMatchStudents->setGeometry(QRect(125, 322, 150, 32));
         labelDetails = new QLabel(centralwidget);
         labelDetails->setObjectName(QString::fromUtf8("labelDetails"));
-        labelDetails->setGeometry(QRect(160, 80, 60, 16));
+        labelDetails->setGeometry(QRect(170, 80, 60, 21));
+        labelDetails->setAlignment(Qt::AlignCenter);
         labelList = new QLabel(centralwidget);
         labelList->setObjectName(QString::fromUtf8("labelList"));
-        labelList->setGeometry(QRect(500, 80, 71, 21));
+        labelList->setGeometry(QRect(530, 80, 71, 21));
         labelList->setAlignment(Qt::AlignCenter);
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setGeometry(QRect(365, 120, 341, 231));
+        listWidget->setGeometry(QRect(425, 120, 281, 221));
         lineSeparate = new QFrame(centralwidget);
         lineSeparate->setObjectName(QString::fromUtf8("lineSeparate"));
         lineSeparate->setGeometry(QRect(50, 380, 700, 3));
@@ -129,19 +133,36 @@ public:
         lineSeparate_2->setFrameShadow(QFrame::Sunken);
         pushButtonEditStudent = new QPushButton(centralwidget);
         pushButtonEditStudent->setObjectName(QString::fromUtf8("pushButtonEditStudent"));
-        pushButtonEditStudent->setGeometry(QRect(530, 460, 151, 32));
+        pushButtonEditStudent->setGeometry(QRect(590, 460, 151, 32));
         pushButtonNewStudent = new QPushButton(centralwidget);
         pushButtonNewStudent->setObjectName(QString::fromUtf8("pushButtonNewStudent"));
         pushButtonNewStudent->setEnabled(true);
-        pushButtonNewStudent->setGeometry(QRect(530, 560, 151, 32));
+        pushButtonNewStudent->setGeometry(QRect(590, 560, 151, 32));
         pushButtonNewStudent->setAutoDefault(false);
         pushButtonNewStudent->setFlat(false);
         pushButtonRemoveStudent = new QPushButton(centralwidget);
         pushButtonRemoveStudent->setObjectName(QString::fromUtf8("pushButtonRemoveStudent"));
-        pushButtonRemoveStudent->setGeometry(QRect(530, 510, 151, 32));
+        pushButtonRemoveStudent->setGeometry(QRect(590, 510, 151, 32));
         pushButtonLoadStudents = new QPushButton(centralwidget);
         pushButtonLoadStudents->setObjectName(QString::fromUtf8("pushButtonLoadStudents"));
-        pushButtonLoadStudents->setGeometry(QRect(530, 410, 151, 32));
+        pushButtonLoadStudents->setGeometry(QRect(590, 410, 151, 32));
+        tableWidgetStudents = new QTableWidget(centralwidget);
+        if (tableWidgetStudents->columnCount() < 6)
+            tableWidgetStudents->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidgetStudents->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidgetStudents->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidgetStudents->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidgetStudents->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableWidgetStudents->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tableWidgetStudents->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        tableWidgetStudents->setObjectName(QString::fromUtf8("tableWidgetStudents"));
+        tableWidgetStudents->setGeometry(QRect(60, 400, 501, 191));
         Manager->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Manager);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -187,6 +208,18 @@ public:
         pushButtonNewStudent->setText(QCoreApplication::translate("Manager", "New Student", nullptr));
         pushButtonRemoveStudent->setText(QCoreApplication::translate("Manager", "Remove Student", nullptr));
         pushButtonLoadStudents->setText(QCoreApplication::translate("Manager", "Load Students", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tableWidgetStudents->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("Manager", "First Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidgetStudents->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("Manager", "Last Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidgetStudents->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("Manager", "Advisor", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidgetStudents->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("Manager", "Last Visit", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidgetStudents->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("Manager", "Frequency", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tableWidgetStudents->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("Manager", "# of Events", nullptr));
     } // retranslateUi
 
 };
