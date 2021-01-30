@@ -19,6 +19,7 @@ class EventDialog : public QDialog
 public:
     explicit EventDialog(QWidget *parent = nullptr);
     void setStudentNameLabel(QString first_name, QString last_name);
+    void addEventsToTableWidget(QList<Event> events);
     QList<Event> returnEvents();
     ~EventDialog();
 
@@ -26,8 +27,6 @@ private slots:
     void on_pushButtonAddEvent_clicked();
 
     void on_pushButtonRemoveEvent_clicked();
-
-    void on_buttonBox_accepted();
 
 private:
     void printEvents();

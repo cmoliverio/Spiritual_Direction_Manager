@@ -721,8 +721,12 @@ moc_eventdialog.cpp: ../Spiritual_Direction_Manager/eventdialog.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QList \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qlist.h \
 		moc_predefs.h \
 		/Users/Christian/Qt/5.15.2/clang_64/bin/moc
 	/Users/Christian/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/build-Spiritual_Direction_Manager-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/Christian/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/Spiritual_Direction_Manager -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/Christian/Qt/5.15.2/clang_64/lib ../Spiritual_Direction_Manager/eventdialog.h -o moc_eventdialog.cpp
@@ -743,10 +747,12 @@ moc_manager.cpp: ../Spiritual_Direction_Manager/manager.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
 		../Spiritual_Direction_Manager/eventdialog.h \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QList \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qlist.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QTableWidgetItem \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
 		moc_predefs.h \
 		/Users/Christian/Qt/5.15.2/clang_64/bin/moc
 	/Users/Christian/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/build-Spiritual_Direction_Manager-Desktop_Qt_5_15_2_clang_64bit-Debug/moc_predefs.h -I/Users/Christian/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/Christian/Coding/Git/Qt/Spiritual_Direction_Manager/Spiritual_Direction_Manager -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/Christian/Qt/5.15.2/clang_64/lib ../Spiritual_Direction_Manager/manager.h -o moc_manager.cpp
@@ -817,8 +823,12 @@ eventdialog.o: ../Spiritual_Direction_Manager/eventdialog.cpp ../Spiritual_Direc
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QList \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qlist.h \
 		ui_eventdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o eventdialog.o ../Spiritual_Direction_Manager/eventdialog.cpp
 
@@ -838,10 +848,12 @@ main.o: ../Spiritual_Direction_Manager/main.cpp ../Spiritual_Direction_Manager/m
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
 		../Spiritual_Direction_Manager/eventdialog.h \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QList \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qlist.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QTableWidgetItem \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QSize \
@@ -864,10 +876,12 @@ manager.o: ../Spiritual_Direction_Manager/manager.cpp ../Spiritual_Direction_Man
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDate \
 		../Spiritual_Direction_Manager/eventdialog.h \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QList \
 		/Users/Christian/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qlist.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QTableWidgetItem \
+		/Users/Christian/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
 		ui_manager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manager.o ../Spiritual_Direction_Manager/manager.cpp
 

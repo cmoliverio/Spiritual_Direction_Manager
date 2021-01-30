@@ -21,18 +21,19 @@ class Manager : public QMainWindow
 
 public:
     Manager(QWidget *parent = nullptr);
-    StudentDialog *studentdialog;
-    EventDialog *eventdialog;
     ~Manager();
 
 private slots:
+    // Functions for buttons in UI
     void on_pushButtonNewStudent_clicked();
-
     void on_pushButtonRemoveStudent_clicked();
+    void on_pushButtonEditStudent_clicked();
 
 private:
-    int count = 0;
-    void printCurrent_students();
+    // Global objects for Dialog Windows
+    StudentDialog *studentdialog;
+    EventDialog *eventdialog;
+    //Running list of students
     QList<Student> current_students;
     Ui::Manager *ui;
 };
