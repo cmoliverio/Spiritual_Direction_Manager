@@ -10,6 +10,7 @@
 #define UI_MANAGER_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
@@ -17,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -29,6 +31,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Manager
 {
 public:
+    QAction *actionSave;
+    QAction *actionOpen;
     QWidget *centralwidget;
     QLabel *welcomeLabel;
     QTimeEdit *timeStart;
@@ -48,9 +52,10 @@ public:
     QPushButton *pushButtonEditStudent;
     QPushButton *pushButtonNewStudent;
     QPushButton *pushButtonRemoveStudent;
-    QPushButton *pushButtonLoadStudents;
     QTableWidget *tableWidgetStudents;
+    QPushButton *pushButtonSave;
     QMenuBar *menubar;
+    QMenu *menuFile;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Manager)
@@ -65,6 +70,10 @@ public:
         Manager->setSizePolicy(sizePolicy);
         Manager->setMinimumSize(QSize(0, 0));
         Manager->setMaximumSize(QSize(16777215, 16777215));
+        actionSave = new QAction(Manager);
+        actionSave->setObjectName(QString::fromUtf8("actionSave"));
+        actionOpen = new QAction(Manager);
+        actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         centralwidget = new QWidget(Manager);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         welcomeLabel = new QLabel(centralwidget);
@@ -75,10 +84,10 @@ public:
         welcomeLabel->setAlignment(Qt::AlignCenter);
         timeStart = new QTimeEdit(centralwidget);
         timeStart->setObjectName(QString::fromUtf8("timeStart"));
-        timeStart->setGeometry(QRect(205, 272, 100, 22));
+        timeStart->setGeometry(QRect(205, 222, 100, 22));
         timeEnd = new QTimeEdit(centralwidget);
         timeEnd->setObjectName(QString::fromUtf8("timeEnd"));
-        timeEnd->setGeometry(QRect(205, 222, 100, 22));
+        timeEnd->setGeometry(QRect(205, 272, 100, 22));
         labelTimeStart = new QLabel(centralwidget);
         labelTimeStart->setObjectName(QString::fromUtf8("labelTimeStart"));
         labelTimeStart->setGeometry(QRect(80, 220, 71, 32));
@@ -143,9 +152,6 @@ public:
         pushButtonRemoveStudent = new QPushButton(centralwidget);
         pushButtonRemoveStudent->setObjectName(QString::fromUtf8("pushButtonRemoveStudent"));
         pushButtonRemoveStudent->setGeometry(QRect(590, 510, 151, 32));
-        pushButtonLoadStudents = new QPushButton(centralwidget);
-        pushButtonLoadStudents->setObjectName(QString::fromUtf8("pushButtonLoadStudents"));
-        pushButtonLoadStudents->setGeometry(QRect(590, 410, 151, 32));
         tableWidgetStudents = new QTableWidget(centralwidget);
         if (tableWidgetStudents->columnCount() < 6)
             tableWidgetStudents->setColumnCount(6);
@@ -163,14 +169,23 @@ public:
         tableWidgetStudents->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidgetStudents->setObjectName(QString::fromUtf8("tableWidgetStudents"));
         tableWidgetStudents->setGeometry(QRect(60, 400, 501, 191));
+        pushButtonSave = new QPushButton(centralwidget);
+        pushButtonSave->setObjectName(QString::fromUtf8("pushButtonSave"));
+        pushButtonSave->setGeometry(QRect(590, 410, 151, 32));
         Manager->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Manager);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 24));
+        menuFile = new QMenu(menubar);
+        menuFile->setObjectName(QString::fromUtf8("menuFile"));
         Manager->setMenuBar(menubar);
         statusbar = new QStatusBar(Manager);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         Manager->setStatusBar(statusbar);
+
+        menubar->addAction(menuFile->menuAction());
+        menuFile->addAction(actionOpen);
+        menuFile->addAction(actionSave);
 
         retranslateUi(Manager);
 
@@ -184,6 +199,8 @@ public:
     void retranslateUi(QMainWindow *Manager)
     {
         Manager->setWindowTitle(QCoreApplication::translate("Manager", "Spiritual Direction Manager", nullptr));
+        actionSave->setText(QCoreApplication::translate("Manager", "Save", nullptr));
+        actionOpen->setText(QCoreApplication::translate("Manager", "Open", nullptr));
         welcomeLabel->setText(QCoreApplication::translate("Manager", "Welcome to Spiritual Direction Manager", nullptr));
         labelTimeStart->setText(QCoreApplication::translate("Manager", "Time Start", nullptr));
         labelTimeEnd->setText(QCoreApplication::translate("Manager", "Time End", nullptr));
@@ -207,7 +224,6 @@ public:
         pushButtonEditStudent->setText(QCoreApplication::translate("Manager", "Edit Student", nullptr));
         pushButtonNewStudent->setText(QCoreApplication::translate("Manager", "New Student", nullptr));
         pushButtonRemoveStudent->setText(QCoreApplication::translate("Manager", "Remove Student", nullptr));
-        pushButtonLoadStudents->setText(QCoreApplication::translate("Manager", "Load Students", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidgetStudents->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("Manager", "First Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidgetStudents->horizontalHeaderItem(1);
@@ -220,6 +236,8 @@ public:
         ___qtablewidgetitem4->setText(QCoreApplication::translate("Manager", "Frequency", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidgetStudents->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("Manager", "# of Events", nullptr));
+        pushButtonSave->setText(QCoreApplication::translate("Manager", "Save", nullptr));
+        menuFile->setTitle(QCoreApplication::translate("Manager", "File", nullptr));
     } // retranslateUi
 
 };

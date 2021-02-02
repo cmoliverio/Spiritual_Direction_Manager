@@ -33,12 +33,12 @@ public:
     void setEvents(const QList<Event> &value);
 
 private:
-    QList<Event> events;
     QString first_name;
     QString last_name;
     QString spiritual_advisor;
     QString frequency;
     QDate last_visit;
+    QList<Event> events;
 };
 
 #endif // STUDENT_H

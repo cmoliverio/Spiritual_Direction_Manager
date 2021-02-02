@@ -10,6 +10,11 @@
 #include <QDebug>
 #include <QList>
 #include <QTableWidgetItem>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonValue>
+#include <QDir>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Manager; }
@@ -24,17 +29,25 @@ public:
     ~Manager();
 
 private slots:
-    // Functions for buttons in UI
     void on_pushButtonNewStudent_clicked();
     void on_pushButtonRemoveStudent_clicked();
     void on_pushButtonEditStudent_clicked();
+    void on_actionSave_triggered();
+
+    void on_pushButtonSave_clicked();
+
+    void on_pushButtonMatchStudents_clicked();
 
 private:
-    // Global objects for Dialog Windows
     StudentDialog *studentdialog;
     EventDialog *eventdialog;
-    //Running list of students
-    QList<Student> current_students;
+    QList<Student> current_students;    // Running list of students
     Ui::Manager *ui;
+
+    bool isOverdue(QString frequency, QDate last_visit);
+    void compareDateTime(Student student, QTime time_start, QTime time_end);
+    void appendStudent(Student new_student);
+    void loadStudents();
+    QJsonArray getJsonArray();
 };
 #endif // MANAGER_H

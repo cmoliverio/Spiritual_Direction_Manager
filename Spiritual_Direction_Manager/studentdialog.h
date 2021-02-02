@@ -15,7 +15,6 @@ class StudentDialog : public QDialog
 
 public:
     explicit StudentDialog(QWidget *parent = nullptr);
-    //StudentDialog(QString student_info[], QDate last_visit, QList<Event> events);
     void studentEditSetup(QString student_info[], QDate last_visit);
     Student getStudent();
     ~StudentDialog();
